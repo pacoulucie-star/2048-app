@@ -1,0 +1,21 @@
+name: Script Lab2
+
+on:
+  push:
+    branches: [ lab03 ]
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Execute lab2 script
+        run: ./deliverables/lab02/lab2.sh
+      
+      - name: Display runner info
+        run: |
+          echo "Running on: $(uname -a)"
+          echo "Workflow: ${{ github.workflow }}"
+          echo "Triggered by: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
